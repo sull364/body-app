@@ -1,0 +1,27 @@
+{
+  "name": "body-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "snowpack dev",
+    "build": "snowpack build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sull364/body-app.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sull364/body-app/issues"
+  },
+  "homepage": "https://github.com/sull364/body-app#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "@snowpack/plugin-sass": "^1.3.0",
+    "snowpack": "^3.0.11"
+  }
+}
