@@ -6,6 +6,10 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 In the project directory, you can run:
 
+### `npm run server`
+Runs the server on localhost 8080. Run this command first in a separate terminal before starting the client side with 'npm start'. 
+Nodemon is installed so hot reloading is set up. You do not need to run this command when running production mode with 'npm run build'
+
 ### `npm start`
 
 Runs the app in the development mode.\
