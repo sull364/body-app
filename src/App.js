@@ -1,28 +1,25 @@
-import './App.scss';
-import Header from "./Header"
+import "./App.scss";
+import Nav from "./Nav";
+import Home from "./Home";
+import About from "./About";
+import Contact from "./Contact";
+import Footer from "./Footer";
+
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 function App() {
   return (
-    <div className="App">
-      < Header />
-      <body>
-        <p>
-          Welcome to the start of the temporarily named Body App
-        </p>
-      </body>
-       <footer className="App-footer">
-         <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-       </footer> 
-        
-      
-    </div>
+    <Router>
+      <div className="App">
+        <Nav />
+        <Switch>
+          <Route path="/" exact component={Home}></Route>
+          <Route path="/about" component={About}></Route>
+          <Route path="/contact" component={Contact}></Route>
+        </Switch>
+        <Footer />
+      </div>
+    </Router>
   );
 }
 

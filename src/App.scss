@@ -25,14 +25,67 @@
  HEADER SYTLES
  */
 
+ $headerColor: #282c34;
+ $whiteColor: white; 
+ 
  nav {
-  background-color: #282c34;
-  min-height: 30vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
+   display: flex;
+   justify-content: space-around;
+   align-items: center;
+   min-height: 8vh;
+   background-color: $headerColor;
+   font-size: calc(10px + 2vmin);
+   color: $whiteColor;
+   .nav-links {
+     display: flex;
+     justify-content: space-around;
+     width: 30%;
+   }
+   .nav-links li {
+     list-style: none;
+   }
+   .nav-links a {
+     color: $whiteColor;
+     text-decoration: none;
+   }
+ }
+ 
+ .burger {
+   display: none;
+   cursor: pointer;
+ }
+ .burger div {
+   width: 25px;
+   height: 3px;
+   background-color: $whiteColor;
+   margin: 5px;
+ }
+ 
+ // @media screen and (max-width: 1024px) {
+ //   .nav-links {
+ //     width: 50%;
+ //   }
+ // }
+ 
+ @media screen and (max-width: 768px) {
+   // .App {
+   //   overflow: hidden;
+   // }
+   .nav-links {
+     position: fixed;
+     right: 0px;
+     height: 92vh;
+     top: 8vh;
+     background-color: $headerColor;
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     transition: transform 0.5s ease-in;
+   }
+   .nav-links li {
+     opacity: 0;
+   }
+   .burger {
+     display: block;
+   }
+ }
