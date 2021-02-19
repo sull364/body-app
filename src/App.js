@@ -1,11 +1,10 @@
 import './App.scss';
+import Header from "./Header"
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <h1>This will be the HEADER</h1>
-      </header>
+      < Header />
       <body>
         <p>
           Welcome to the start of the temporarily named Body App
