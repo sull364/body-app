@@ -9,7 +9,7 @@ function Footer() {
         target="_blank"
         rel="noopener noreferrer"
       >
-        Learn React
+        Hello Footer
       </a>
     </footer>
   );
