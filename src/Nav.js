@@ -6,7 +6,11 @@ function Nav() {
   const [transformSetting, setTransformSetting] = useState({});
 
   const navSlide = () => {
-    console.log("helloooo"); // delete later
+    /* 
+    updates state for the burger class; when undefined it 
+    is using transform: translateX(100%) from the app.scss file.
+    translateX(0%) makes the menu appear. 
+    */
     if (transformSetting.transform === undefined)
       return setTransformSetting({ transform: "translateX(0%)" });
     else setTransformSetting({});
@@ -30,7 +34,7 @@ function Nav() {
             <li>Contact </li>
           </Link>
         </ul>
-
+        {/* burger only appears on screens smaller than 768px per the app.scss  */}
         <div className="burger" onClick={navSlide}>
           <div className="line1"></div>
           <div className="line2"></div>
