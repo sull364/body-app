@@ -1,48 +1,63 @@
-import "./App.scss";
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, {useState} from 'react';
+import { makeStyles } from '@material-ui/core/styles';
+import { AppBar, Toolbar, Typography, Button, Menu, MenuItem, Link } from '@material-ui/core';
+import { Link as RouterLink } from 'react-router-dom';
 
-function Nav() {
-  const [transformSetting, setTransformSetting] = useState({});
 
-  const navSlide = () => {
-    /* 
-    updates state for the burger class; when undefined it 
-    is using transform: translateX(100%) from the app.scss file.
-    translateX(0%) makes the menu appear. 
-    */
-    if (transformSetting.transform === undefined)
-      return setTransformSetting({ transform: "translateX(0%)" });
-    else setTransformSetting({});
+
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    flexGrow: 1,
+  },
+  title: {
+    flexGrow: 1,
+  },
+  nav: {
+    backgroundColor: "#282c34",
+  }
+}));
+
+export default function Nav() {
+  const classes = useStyles();
+  const [anchorEl, setAnchorEl] = useState(null);
+
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
   };
 
   return (
-    <div className="Nav">
-      <nav>
-        <div className="logo">
-          <h1>HEADER</h1>
-        </div>
-
-        <ul className="nav-links" style={transformSetting}>
-          <Link to="/">
-            <li>Home </li>
-          </Link>
-          <Link to="/about">
-            <li>About </li>
-          </Link>
-          <Link to="/contact">
-            <li>Contact </li>
-          </Link>
-        </ul>
-        {/* burger only appears on screens smaller than 768px per the app.scss  */}
-        <div className="burger" onClick={navSlide}>
-          <div className="line1"></div>
-          <div className="line2"></div>
-          <div className="line3"></div>
-        </div>
-      </nav>
+    <div className={classes.root}>
+      <AppBar position="fixed" className={classes.nav}>
+        <Toolbar>
+        <Typography edge="start" variant="h6" className={classes.title}>
+            NavBar
+          </Typography>
+          <Button aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}>
+            <div className= 'burger'>
+              <div className = "burger div"></div>
+              <div className = "burger div"></div>
+              <div className = "burger div"></div>
+            </div>
+          </Button>
+          <Menu
+            id="simple-menu"
+            anchorEl={anchorEl}
+            keepMounted
+            open={Boolean(anchorEl)}
+            onClose={handleClose}
+          >
+            <Link component={RouterLink} to="/"><MenuItem onClick={handleClose}>Home</MenuItem></Link>
+            <Link component={RouterLink} to="/main"><MenuItem onClick={handleClose}>Main</MenuItem></Link>
+            <Link component={RouterLink} to="/about"><MenuItem onClick={handleClose}>About</MenuItem></Link>
+            <Link component={RouterLink} to="/contact"><MenuItem onClick={handleClose}>Contact</MenuItem></Link>
+          </Menu>
+        </Toolbar>
+      </AppBar>
     </div>
   );
 }
-
-export default Nav;
